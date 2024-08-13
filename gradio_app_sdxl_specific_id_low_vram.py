@@ -1,3 +1,6 @@
+import os
+os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
+
 from this import d
 import gradio as gr
 import numpy as np
@@ -722,6 +725,8 @@ def process_generation(
     font_choice,
     _char_files,
 ):  # Corrected font_choice usage
+    print(type(_upload_images), _upload_images)
+    print(type(_char_files), _char_files)
     if len(general_prompt.splitlines()) >= 3:
         raise gr.Error(
             "Support for more than three characters is temporarily unavailable due to VRAM limitations, but this issue will be resolved soon."
